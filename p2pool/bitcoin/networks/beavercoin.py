@@ -9,7 +9,7 @@ from p2pool.util import pack
 
 P2P_PREFIX = 'fbc0b6db'.decode('hex')
 P2P_PORT = 2333
-ADDRESS_VERSION = 0
+ADDRESS_VERSION = 25
 RPC_PORT = 2332
 RPC_CHECK = defer.inlineCallbacks(lambda beavercoind: defer.returnValue(
             'beavercoinaddress' in (yield beavercoind.rpc_help()) and
