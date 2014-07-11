@@ -11,9 +11,9 @@ P2P_PREFIX = 'fcc1b7dc'.decode('hex')
 P2P_PORT = 12333
 ADDRESS_VERSION = 111
 RPC_PORT = 12332
-RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'litecoinaddress' in (yield bitcoind.rpc_help()) and
-            (yield bitcoind.rpc_getinfo())['testnet']
+RPC_CHECK = defer.inlineCallbacks(lambda beavercoind: defer.returnValue(
+            'litecoinaddress' in (yield beavercoind.rpc_help()) and
+            (yield beavercoind.rpc_getinfo())['testnet']
         ))
 SUBSIDY_FUNC = lambda height: 50*100000000 >> (height + 1)//840000
 POW_FUNC = lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data))
